@@ -152,6 +152,7 @@
     <ClInclude Include="cstring.h" />
     <ClInclude Include="glmath.h" />
     <ClInclude Include="MainWnd.h" />
+    <ClInclude Include="RayTracer.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClCompile Include="cstring.cpp" />
     <ClCompile Include="glmath.cpp" />
     <ClCompile Include="MainWnd.cpp" />
+    <ClCompile Include="RayTracer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="cpu_ray_tracer_00_color_buffer_rays.rc" />
