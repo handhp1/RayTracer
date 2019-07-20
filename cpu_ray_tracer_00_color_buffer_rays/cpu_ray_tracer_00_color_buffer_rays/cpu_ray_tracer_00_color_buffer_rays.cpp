@@ -148,13 +148,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	}
 	break;
 	case WM_PAINT:
-	{
-		PAINTSTRUCT ps;
-		HDC hdc = BeginPaint(hWnd, &ps);
-		// TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-		EndPaint(hWnd, &ps);
-	}
-	break;
+		Wnd.OnPaint();
+		break;
 	case WM_CLOSE:
 		PostQuitMessage(0);
 		break;
@@ -163,7 +158,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		Wnd.OnMouseMove(LOWORD(lParam), HIWORD(lParam));
 		break;
 
-	case 0x020A: // WM_MOUSWHEEL
+	case WM_MOUSEWHEEL:
 		Wnd.OnMouseWheel(HIWORD(wParam));
 		break;
 

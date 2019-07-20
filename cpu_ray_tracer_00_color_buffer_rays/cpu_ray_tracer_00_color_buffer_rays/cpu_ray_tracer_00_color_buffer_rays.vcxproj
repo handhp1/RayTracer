@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="cpu_ray_tracer_00_color_buffer_rays.h" />
     <ClInclude Include="cstring.h" />
     <ClInclude Include="glmath.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="cpu_ray_tracer_00_color_buffer_rays.cpp" />
     <ClCompile Include="cstring.cpp" />
     <ClCompile Include="glmath.cpp" />

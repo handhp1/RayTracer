@@ -9,7 +9,7 @@ public:
 
 protected:
 	char* WindowName;
-	HWND hwnd;
+	HWND hWnd;
 	int Width, Height, x, y, LastX, LastY;
 
 public:
