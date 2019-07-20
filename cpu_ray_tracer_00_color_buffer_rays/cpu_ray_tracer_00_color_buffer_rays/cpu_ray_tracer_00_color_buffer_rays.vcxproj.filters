@@ -24,9 +24,21 @@
     <ClInclude Include="cpu_ray_tracer_00_color_buffer_rays.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="glmath.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="cstring.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpu_ray_tracer_00_color_buffer_rays.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="glmath.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cstring.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
