@@ -1,6 +1,8 @@
+#pragma once
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+#include <wchar.h>
 
 // ----------------------------------------------------------------------------------------------------------------------------
 
@@ -17,6 +19,7 @@ public:
 	~CString();
 
 	operator char* ();
+	operator wchar_t* ();
 
 	CString& operator = (const char *NewString);
 	CString& operator = (const CString &NewString);

@@ -1,5 +1,6 @@
 #pragma once
 #include <windows.h>
+#include "glmath.h"
 
 class RayTracer
 {
@@ -14,7 +15,7 @@ private:
 
 public:
 	bool Init();
-	void RayTrace(int x, int y);
+	void RayTrace(int x, int y, mat4x4 rayMatrix);
 	void Resize(int Width, int Height);
 	void Destroy();
 

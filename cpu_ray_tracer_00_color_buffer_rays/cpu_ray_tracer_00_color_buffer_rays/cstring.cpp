@@ -1,4 +1,5 @@
 #include "cstring.h"
+#include <windows.h>
 
 // ----------------------------------------------------------------------------------------------------------------------------
 
@@ -30,6 +31,16 @@ CString::~CString()
 CString::operator char* ()
 {
 	return String;
+}
+
+CString::operator wchar_t*()
+{
+	int len = strlen(String);
+
+	wchar_t* strDestPath = nullptr;
+	// Converts the path to wide characters
+	MultiByteToWideChar(0, 0, String, len + 1, strDestPath, len + 1);
+	return strDestPath;
 }
 
 CString& CString::operator = (const char *NewString)
