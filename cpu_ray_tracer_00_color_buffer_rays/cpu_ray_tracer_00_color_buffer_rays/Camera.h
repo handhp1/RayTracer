@@ -19,5 +19,7 @@ public:
 	bool OnKeyDown(UINT nChar);
 	void OnMouseMove(int dx, int dy);
 	void OnMouseWheel(short zDelta);
+
+	void Resize(int Width, int Height);
 };
 

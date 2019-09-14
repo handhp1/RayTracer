@@ -34,16 +34,59 @@ void RayTracer::RayTrace(int x, int y, mat4x4 rayMatrix)
 
 void RayTracer::Resize(int Width, int Height)
 {
+	this->Width = Width;
+	this->Height = Height;
+
+	if (ColorBuffer != NULL)
+	{
+		delete[] ColorBuffer;
+		ColorBuffer = NULL;
+	}
+
+	if (Width > 0 && Height > 0)
+	{
+		LineWidth = Width;
+
+		int WidthMod4 = Width % 4;
+
+		if (WidthMod4 > 0)
+		{
+			LineWidth += 4 - WidthMod4;
+		}
+
+		ColorBuffer = new BYTE[LineWidth * Height * 3];
+
+		memset(&ColorBufferInfo, 0, sizeof(BITMAPINFOHEADER));
+		ColorBufferInfo.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+		ColorBufferInfo.bmiHeader.biPlanes = 1;
+		ColorBufferInfo.bmiHeader.biBitCount = 24;
+		ColorBufferInfo.bmiHeader.biCompression = BI_RGB;
+		ColorBufferInfo.bmiHeader.biWidth = LineWidth;
+		ColorBufferInfo.bmiHeader.biHeight = Height;
+	}
 }
 
 void RayTracer::Destroy()
 {
+	if (ColorBuffer != NULL)
+	{
+		delete[] ColorBuffer;
+		ColorBuffer = NULL;
+	}
 }
 
 void RayTracer::ClearColorBuffer()
 {
+	if (ColorBuffer != NULL)
+	{
+		memset(ColorBuffer, 0, LineWidth * Height * 3);
+	}
 }
 
 void RayTracer::SwapBuffers(HDC hDC)
 {
+	if (ColorBuffer != NULL)
+	{
+		StretchDIBits(hDC, 0, 0, Width, Height, 0, 0, Width, Height, ColorBuffer, &ColorBufferInfo, DIB_RGB_COLORS, SRCCOPY);
+	}
 }

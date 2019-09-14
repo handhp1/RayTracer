@@ -186,6 +186,7 @@ void MainWnd::OnSize(int Width, int Height)
 	this->Height = Height;
 
 	pRayTracer->Resize(Width, Height);
+	pCamera->Resize(Width, Height);
 
 	Repaint();
 }
