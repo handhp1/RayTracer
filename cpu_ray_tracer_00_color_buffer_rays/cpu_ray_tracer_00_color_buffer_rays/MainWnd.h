@@ -1,5 +1,6 @@
 #pragma once
 #include <windows.h>
+#include "cstring.h"
 
 class RayTracer;
 class Camera;
@@ -11,7 +12,7 @@ public:
 	~MainWnd();
 
 protected:
-	char* WindowName;
+	CString WindowName;
 	HWND hWnd;
 	int Width, Height, x, y, LastX, LastY;
 
@@ -19,10 +20,10 @@ protected:
 	Camera* pCamera;
 
 public:
-	bool Create(HINSTANCE hInstance, char* WindowName, int Width, int Height);
+	bool Create(HINSTANCE hInstance, WCHAR* szTitle, WCHAR* szWindowClass, int Width, int Height);
 	void Repaint();
 	void Show(bool Maximized = false);
-	void MsgLoop();
+	void MsgLoop(HINSTANCE hInstance, LPWSTR INTRESOURCE);
 	void Destroy();
 
 	void OnKeyDown(UINT Key);
